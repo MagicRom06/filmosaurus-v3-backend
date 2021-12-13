@@ -1,3 +1,4 @@
 .env
 core/.env
 db.sqlite3
+filmosaurus.sql
