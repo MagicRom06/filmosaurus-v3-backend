@@ -3,6 +3,7 @@ from django.urls import reverse
 
 # Create your tests here.
 
+
 class HomePageViewTest(TestCase):
     """
     testing home page
