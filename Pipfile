@@ -8,6 +8,7 @@ django = "*"
 django-environ = "*"
 flake8 = "*"
 isort = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
