@@ -6,9 +6,16 @@ name = "pypi"
 [packages]
 django = "*"
 django-environ = "*"
-flake8 = "*"
-isort = "*"
 psycopg2-binary = "*"
+isort = "*"
+flake8 = "*"
+imdbpy = "*"
+djangorestframework = "==3.12.4"
+django-cors-headers = "*"
+requests = "*"
+beautifulsoup4 = "*"
+dj-rest-auth = "*"
+django-allauth = "*"
 
 [dev-packages]
 
