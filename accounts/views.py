@@ -1,14 +1,15 @@
-from rest_framework.response import Response
-from .serializers import WatchlistAddSerializer, \
-                         WatchlistCheckinDbSerializer,\
-                         WatchlistListSerializer,\
-                         WatchlistUpdateSerializer
-from rest_framework import status, generics
-from rest_framework.views import APIView
-from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import get_user_model
-from .models import Watchlist
+from rest_framework import generics, status
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from movies.models import Movie
+
+from .models import Watchlist
+from .serializers import (WatchlistAddSerializer, WatchlistCheckinDbSerializer,
+                          WatchlistListSerializer, WatchlistUpdateSerializer)
+
 
 class AddToWatchlistView(APIView):
     permission_classes = [IsAuthenticated]
@@ -44,12 +45,16 @@ class MovieInWatchlist(generics.ListCreateAPIView):
     serializer_class = WatchlistCheckinDbSerializer
 
     def get(self, request):
-        user = get_user_model().objects.get(id=self.request.user.id)
+        user = get_user_model().objects.get(
+            id=self.request.user.id
+        )
         movie_id = self.request.query_params.get('movie_id')
-        if Watchlist.objects.filter(user_id=user.id, movie_id=movie_id, seen=False).exists():
+        if Watchlist.objects.filter(
+            user_id=user.id, movie_id=movie_id, seen=False
+        ).exists():
             return Response({'saved': True})
         else:
-            return Response({'saved': False}) 
+            return Response({'saved': False})
 
 
 class WatchlistListView(generics.ListCreateAPIView):
@@ -58,7 +63,9 @@ class WatchlistListView(generics.ListCreateAPIView):
     pagination_class = None
 
     def get_queryset(self):
-        return Watchlist.objects.filter(user_id=self.request.user.id).order_by('-id')
+        return Watchlist.objects.filter(
+            user_id=self.request.user.id
+        ).order_by('-id')
 
 
 class WatchlistUpdateSeenView(APIView):
@@ -69,11 +76,22 @@ class WatchlistUpdateSeenView(APIView):
         user = get_user_model().objects.get(id=self.request.user.id)
         if serializer.is_valid():
             try:
-                item = Watchlist.objects.get(id=request.data['watchlist_id'], user_id=user.id)
+                item = Watchlist.objects.get(
+                    id=request.data['watchlist_id'], user_id=user.id
+                )
                 item.seen = True
                 item.save()
             except Exception as e:
-                return Response({'update': False, 'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+                return Response(
+                    {
+                        'update': False, 'error': str(e)
+                    },
+                    status=status.HTTP_400_BAD_REQUEST
+                )
             else:
-                return Response({'update': True}, status=status.HTTP_204_NO_CONTENT)
+                return Response(
+                    {
+                        'update': True
+                    }, status=status.HTTP_204_NO_CONTENT
+                )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

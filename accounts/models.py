@@ -1,9 +1,11 @@
-from django.db import models
 from django.contrib.auth import get_user_model
+from django.db import models
 from django.db.models.deletion import CASCADE
+
 from movies.models import Movie
 
 # Create your models here.
+
 
 class Watchlist(models.Model):
     user = models.ForeignKey(

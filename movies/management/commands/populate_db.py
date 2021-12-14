@@ -1,4 +1,5 @@
 from django.core.management.base import BaseCommand
+
 from movies.models import Category, Country, Movie, Person
 
 from .category import CategoryToDB

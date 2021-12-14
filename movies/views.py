@@ -1,7 +1,6 @@
-from imdb import IMDb
-
 from django.db.models import Q
 from django.http import Http404
+from imdb import IMDb
 from rest_framework import generics
 from rest_framework.response import Response
 

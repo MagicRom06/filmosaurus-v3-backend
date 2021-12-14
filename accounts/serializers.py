@@ -1,5 +1,7 @@
-from .models import Watchlist
 from rest_framework import serializers
+
+from .models import Watchlist
+
 
 class WatchlistAddSerializer(serializers.Serializer):
     movie_id = serializers.IntegerField()
@@ -25,6 +27,7 @@ class WatchlistListSerializer(serializers.ModelSerializer):
             'saved_date'
         )
         model = Watchlist
+
 
 class WatchlistUpdateSerializer(serializers.ModelSerializer):
 
