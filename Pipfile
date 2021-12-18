@@ -16,6 +16,8 @@ requests = "*"
 beautifulsoup4 = "*"
 dj-rest-auth = "*"
 django-allauth = "*"
+whitenoise = "*"
+pytz = "*"
 
 [dev-packages]
 
