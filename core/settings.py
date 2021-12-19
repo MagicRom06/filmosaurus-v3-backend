@@ -30,7 +30,13 @@ if env('ENV') == 'production':
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '13.37.81.89']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '13.37.81.89',
+    'filmosaurus-api.net',
+    'www.filmosaurus-api.net',
+]
 
 
 # Application definition
