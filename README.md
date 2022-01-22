@@ -26,3 +26,13 @@ Load ratings of a movie => https://filmosaurus-api.net/api/v1/ratings/load?movie
 Return the ratings for the selected movie (actually rating are from Allociné and IMDB)
 <br>
 <br>
+
+### Authentication
+Registration => https://filmosaurus-api.net/api/v1/dj-rest-auth/registration/ <br>
+Return a token if creation is successfull
+<br>
+<br>
+Login => https://filmosaurus-api.net/api/v1//dj-rest-auth/login/ <br>
+You need to add the username, email and password in the body of your request. Token will be provided if the login is successfull.
+<br>
+<br>
