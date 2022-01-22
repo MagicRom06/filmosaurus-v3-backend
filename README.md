@@ -32,7 +32,23 @@ Registration => https://filmosaurus-api.net/api/v1/dj-rest-auth/registration/ <b
 Return a token if creation is successfull
 <br>
 <br>
-Login => https://filmosaurus-api.net/api/v1//dj-rest-auth/login/ <br>
+Login => https://filmosaurus-api.net/api/v1/dj-rest-auth/login/ <br>
 You need to add the username, email and password in the body of your request. Token will be provided if the login is successfull.
 <br>
 <br>
+
+### Watchlist
+Load the watchlist => https://filmosaurus-api.net/api/v1/accounts/watchlist/list <br>
+Authentication is required, token need to be added in the header of the request. <br>
+example: ('Authorization': `Token ${token}`)<br>
+Return the list of movies saved in watchlist.
+<br>
+<br>
+Add in Watchlist => https://filmosaurus-api.net/api/v1/accounts/watchlist/add <br>
+Authentication is required, token need to be added in the header of the request. <br>
+example: ('Authorization': `Token ${token}`)<br>
+<br>
+<br>
+Tagged as viewed => https://filmosaurus-api.net/api/v1/accounts/watchlist/update/seen/ <br>
+Authentication is required, token need to be added in the header of the request. <br>
+example: ('Authorization': `Token ${token}`)<br>
